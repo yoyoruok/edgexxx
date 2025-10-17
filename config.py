@@ -34,8 +34,8 @@ class StrategyConfig:
     rope_period: int = 50  # 系绳线周期
     
     # 风险管理
-    stop_loss_pct: float = 0.02  # 止损百分比 (2%)
-    take_profit_pct: float = 0.05  # 止盈百分比 (5%)
+    stop_loss_pct: float = 0.005  # 止损百分比 (2%)
+    take_profit_pct: float = 0.012  # 止盈百分比 (5%)
     slippage: float = 0.001  # 滑点 (0.1%)
     
     # K线周期
@@ -58,6 +58,17 @@ class APIConfig:
     max_requests_per_second: int = 10
     max_orders_per_minute: int = 100
 
+@dataclass
+class StrategyConfig:
+    """策略配置"""
+    # 系绳线策略参数
+    rope_period: int = 50  # 系绳线周期
+    
+    # 通用风控参数
+    stop_loss_pct: float = 0.005     # 2%止损
+    take_profit_pct: float = 0.012   # 5%止盈
+    slippage: float = 0.001         # 0.1%滑点
+    timeframe: str = "15m"          # K线周期
 
 class Config:
     """主配置类"""
@@ -71,19 +82,10 @@ class Config:
             "BTCUSDT": TradingPairConfig(
                 contract_id="10000001",
                 symbol="BTCUSDT",
-                position_size=1000.0,  # 1000 USDT
-                leverage=5,
-                order_size=0.01,  # 0.01 BTC
+                position_size=500.0,  # 1000 USDT
+                leverage=1,
+                order_size=0.001,  # 0.01 BTC
                 tick_size=0.1,
-                size_precision=3
-            ),
-            "ETHUSDT": TradingPairConfig(
-                contract_id="10000002",
-                symbol="ETHUSDT",
-                position_size=500.0,  # 500 USDT
-                leverage=5,
-                order_size=0.1,  # 0.1 ETH
-                tick_size=0.01,
                 size_precision=3
             ),
         }
