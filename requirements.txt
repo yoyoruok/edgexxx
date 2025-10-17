@@ -1,0 +1,26 @@
+# EdgeX量化交易系统依赖
+
+# EdgeX SDK
+edgex-python-sdk>=0.3.0
+
+# 数据处理
+pandas>=1.5.0
+numpy>=1.23.0
+
+# 环境变量管理
+python-dotenv>=0.21.0
+
+# 异步HTTP客户端
+aiohttp>=3.8.0
+
+# 加密相关
+cryptography>=38.0.0
+pycryptodome>=3.15.0
+
+# 日志相关
+colorlog>=6.7.0  # 可选：彩色日志输出
+
+# 开发工具（可选）
+# pytest>=7.4.0  # 单元测试
+# black>=23.0.0  # 代码格式化
+# flake8>=6.0.0  # 代码检查
